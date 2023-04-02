@@ -60,5 +60,13 @@ public class Main {
         System.out.println("Carro 3 / " + carro_personalizado3.getDescricao());
 
         scanner.close();
+
+        System.out.println("Carro 1" );
+        carro1.ativarHabilidade();
+        System.out.println("Carro 2" 
+        );
+        carro2.ativarHabilidade();
+        System.out.println("Carro 3");
+        carro3.ativarHabilidade();
     }
 }
