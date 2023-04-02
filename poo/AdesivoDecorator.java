@@ -1,4 +1,4 @@
-package poo2;
+package poo;
 
 public class AdesivoDecorator extends CarroDecorado{
 	public CarroDecorado carro;

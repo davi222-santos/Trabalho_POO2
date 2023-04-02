@@ -1,4 +1,4 @@
-package poo2;
+package poo;
 
 	public class CorCarroceriaDecorator extends CarroDecorado {
 		

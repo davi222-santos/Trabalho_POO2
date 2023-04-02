@@ -1,13 +1,18 @@
-package poo2;
+package poo;
 
 import java.util.Scanner;
+
+import poo.habilidade.AProvaDeFogo;
+import poo.habilidade.Jump;
+import poo.habilidade.NenhumaHabilidade;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         // Carro 1
-        CarroDecorado carro1 = new Carro();
+        Carro carro1 = new Carro(
+                new NenhumaHabilidade());
         System.out.println("Customize o Carro 1:");
         System.out.print("Cor da Carroceria: ");
         String corCarroceria1 = scanner.nextLine();
@@ -16,14 +21,13 @@ public class Main {
         System.out.print("Nome do Adesivo: ");
         String nomeAdesivo1 = scanner.nextLine();
 
-        carro1 = new CorCarroceriaDecorator(carro1, corCarroceria1);
-        carro1 = new CorFarolDecorator(carro1, corFarol1);
-        carro1 = new AdesivoDecorator(carro1, nomeAdesivo1);
-
-       
+        CarroDecorado carro_personalizado1 = new CorCarroceriaDecorator(carro1, corCarroceria1);
+        carro_personalizado1 = new CorFarolDecorator(carro_personalizado1, corFarol1);
+        carro_personalizado1 = new AdesivoDecorator(carro_personalizado1, nomeAdesivo1);
 
         // Carro 2
-        CarroDecorado carro2 = new Carro();
+        Carro carro2 = new Carro(
+                new AProvaDeFogo());
         System.out.println("Customize o Carro 2:");
         System.out.print("Cor da Carroceria: ");
         String corCarroceria2 = scanner.nextLine();
@@ -32,14 +36,13 @@ public class Main {
         System.out.print("Nome do Adesivo: ");
         String nomeAdesivo2 = scanner.nextLine();
 
-        carro2 = new CorCarroceriaDecorator(carro2, corCarroceria2);
-        carro2 = new CorFarolDecorator(carro2, corFarol2);
-        carro2 = new AdesivoDecorator(carro2, nomeAdesivo2);
 
-       
+        CarroDecorado carro_personalizado2 = new CorCarroceriaDecorator(carro2, corCarroceria2);
+        carro_personalizado2 = new CorFarolDecorator(carro_personalizado2, corFarol2);
+        carro_personalizado2 = new AdesivoDecorator(carro_personalizado2, nomeAdesivo2);
 
         // Carro 3
-        CarroDecorado carro3 = new Carro();
+        Carro carro3 = new Carro(new Jump());
         System.out.println("Customize o Carro 3:");
         System.out.print("Cor da Carroceria: ");
         String corCarroceria3 = scanner.nextLine();
@@ -48,13 +51,14 @@ public class Main {
         System.out.print("Nome do Adesivo: ");
         String nomeAdesivo3 = scanner.nextLine();
 
-        carro3 = new CorCarroceriaDecorator(carro3, corCarroceria3);
-        carro3 = new CorFarolDecorator(carro3, corFarol3);
-        carro3 = new AdesivoDecorator(carro3, nomeAdesivo3);
+        CarroDecorado carro_personalizado3 = new CorCarroceriaDecorator(carro3, corCarroceria3);
+        carro_personalizado3 = new CorFarolDecorator(carro_personalizado3, corFarol3);
+        carro_personalizado3 = new AdesivoDecorator(carro_personalizado3, nomeAdesivo3);
 
-        
-        System.out.println("Carro 1 / " + carro1.getDescricao());
-        System.out.println("Carro 2 / " +carro2.getDescricao());
-        System.out.println("Carro 3 / " +carro3.getDescricao());
+        System.out.println("Carro 1 / " + carro_personalizado1.getDescricao());
+        System.out.println("Carro 2 / " + carro_personalizado2.getDescricao());
+        System.out.println("Carro 3 / " + carro_personalizado3.getDescricao());
+
+        scanner.close();
     }
 }
