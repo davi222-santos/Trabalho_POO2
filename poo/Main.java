@@ -12,7 +12,7 @@ public class Main {
 
         // Carro 1
         Carro carro1 = new Carro(
-                new NenhumaHabilidade());
+                new NenhumaHabilidade(), null);
         System.out.println("Customize o Carro 1:");
         System.out.print("Cor da Carroceria: ");
         String corCarroceria1 = scanner.nextLine();
@@ -27,7 +27,7 @@ public class Main {
 
         // Carro 2
         Carro carro2 = new Carro(
-                new AProvaDeFogo());
+                new AProvaDeFogo(), nomeAdesivo1);
         System.out.println("Customize o Carro 2:");
         System.out.print("Cor da Carroceria: ");
         String corCarroceria2 = scanner.nextLine();
@@ -36,13 +36,12 @@ public class Main {
         System.out.print("Nome do Adesivo: ");
         String nomeAdesivo2 = scanner.nextLine();
 
-
         CarroDecorado carro_personalizado2 = new CorCarroceriaDecorator(carro2, corCarroceria2);
         carro_personalizado2 = new CorFarolDecorator(carro_personalizado2, corFarol2);
         carro_personalizado2 = new AdesivoDecorator(carro_personalizado2, nomeAdesivo2);
 
         // Carro 3
-        Carro carro3 = new Carro(new Jump());
+        Carro carro3 = new Carro(new Jump(), nomeAdesivo2);
         System.out.println("Customize o Carro 3:");
         System.out.print("Cor da Carroceria: ");
         String corCarroceria3 = scanner.nextLine();
@@ -61,10 +60,9 @@ public class Main {
 
         scanner.close();
 
-        System.out.println("Carro 1" );
+        System.out.println("Carro 1");
         carro1.ativarHabilidade();
-        System.out.println("Carro 2" 
-        );
+        System.out.println("Carro 2");
         carro2.ativarHabilidade();
         System.out.println("Carro 3");
         carro3.ativarHabilidade();

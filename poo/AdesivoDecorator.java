@@ -1,16 +1,12 @@
 package poo;
 
-public class AdesivoDecorator extends CarroDecorado{
+public class AdesivoDecorator extends CarroDecorado {
 	public CarroDecorado carro;
 	public String nomeAdesivo;
-	
-	public AdesivoDecorator(CarroDecorado carro, String nomeAdesivo) {
-		this.carro = carro;
-		this.nomeAdesivo = nomeAdesivo;
-		descricao = carro.getDescricao() + ", e um adesivo de " + nomeAdesivo;
+
+	public AdesivoDecorator(Componente componente, String nomeAdesivo) {
+		super(componente);
+		this.descricao = this.descricao + nomeAdesivo;
 	}
-	
-	public String getDescricao() {
-        return descricao;
-    }
+
 }
