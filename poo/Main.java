@@ -80,11 +80,23 @@ public class Main {
         pista.adicionarObservador(carro1);
         pista.adicionarObservador(carro2);
         pista.adicionarObservador(carro3);
+
+
         pista.setEstado(Estado.AreiaMovedica);
+        pista.mostrarEstadoPista();
 
        for(Observador obs: pista.observadores){
             System.out.println(obs.pistaAtual.getEstado());
        }
+
+       System.out.println();
+
+       pista.setEstado(Estado.Erupcao_Vulcanica);
+       pista.mostrarEstadoPista();
+
+      for(Observador obs: pista.observadores){
+           System.out.println(obs.pistaAtual.getEstado());
+      }
         
     }
 }

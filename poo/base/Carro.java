@@ -2,7 +2,7 @@ package poo.base;
 
 import poo.habilidade.Habilidade;
 import poo.habilidade.NenhumaHabilidade;
-import poo.observers.Observador;
+// import poo.observers.Observador;
 
 
 public class Carro extends Componente {
@@ -28,5 +28,4 @@ public class Carro extends Componente {
 	public void atualizar(Estado newEstado) {
         this.pistaAtual.setEstado(newEstado);
 	};
-
 }

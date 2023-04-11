@@ -3,27 +3,27 @@ package poo.base;
 public enum Estado {
     Normal{
         @Override
-        public void getEstado(){
-            System.out.println("A pista está em estado normal\n");
+        public void mostrarEstado(){
+            System.out.println("A pista está em estado normal!\n");
         }
     },
     Erupcao_Vulcanica{
-        public void getEstado(){
-            System.out.println("A pista está em estado normal\n");
+        public void mostrarEstado(){
+            System.out.println("A pista está em Erupção Vulcânica!\n");
         }
     },
     Precipicio{
-        public void getEstado(){
-            System.out.println("A pista está em estado normal\n");
+        public void mostrarEstado(){
+            System.out.println("A pista está em um Precipício!\n");
         }
     },
     AreiaMovedica{
-        public void getEstado(){
-            System.out.println("A pista está em estado normal\n");
+        public void mostrarEstado(){
+            System.out.println("A pista se tornou Areia Movediça!\n");
         }
     };
 
-    public void getEstado(){
+    public void mostrarEstado(){
         System.out.println("<Estado da pista>");
     };
 }

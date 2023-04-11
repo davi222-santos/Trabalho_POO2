@@ -3,6 +3,6 @@ import poo.base.Estado;
 import poo.base.Pista;
 
 public interface Observador {
-    Pista pistaAtual = new Pista();
+    public Pista pistaAtual = new Pista();
     public default void atualizar(Estado estado){};
 }

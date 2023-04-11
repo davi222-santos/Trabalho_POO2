@@ -21,11 +21,13 @@ public class Pista {
 
     public void setEstado(Estado newEstado){
         this.estado = newEstado;
-
         for(Observador obs: this.observadores){
             obs.atualizar(newEstado);
-            obs.pistaAtual.setEstado(this.estado);
         }
+    }
+
+    public void mostrarEstadoPista(){
+        this.estado.mostrarEstado();
     }
 
     public void voltarAoNormal(){
