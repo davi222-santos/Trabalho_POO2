@@ -6,7 +6,7 @@ public class AdesivoDecorator extends CarroDecorado {
 
 	public AdesivoDecorator(Componente componente, String nomeAdesivo) {
 		super(componente);
-		this.descricao = this.descricao + nomeAdesivo;
+		this.descricao = this.descricao + " + adesivo de cor " + nomeAdesivo;
 	}
 
 }

@@ -7,7 +7,7 @@ public class CorFarolDecorator extends CarroDecorado {
 
 	public CorFarolDecorator(Componente componente, String corFarol) {
 		super(componente);
-		this.descricao = this.descricao + corFarol;
+		this.descricao = this.descricao + " + com farol de cor " + corFarol;
 	}
 
 }

@@ -3,16 +3,28 @@ package poo;
 public abstract class CarroDecorado extends Componente {
 
     private Componente componente;
+    
+    public CarroDecorado(Componente componente) {
+        this.componente = componente;
+        if (componente instanceof Carro)
+            this.descricao = "Personalização do " + this.componente.getNome() + ": ";
+        else
+            this.descricao = componente.descricao;
+    }
 
     public Componente getComponente() {
         return componente;
     }
 
     public String getDescricao() {
-        return componente.descricao;
+        return this.descricao;
     }
 
-    public CarroDecorado(Componente componente) {
-        this.componente = componente;
+    public void ativarHabilidade(){
+        this.componente.ativarHabilidade();
+    }
+
+    public String getNome(){
+        return this.componente.getNome();
     }
 }

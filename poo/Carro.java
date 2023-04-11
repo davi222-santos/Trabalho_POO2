@@ -1,21 +1,23 @@
 package poo;
 
 import poo.habilidade.Habilidade;
+import poo.habilidade.NenhumaHabilidade;
 
 public class Carro extends Componente {
 	private Habilidade habilidade;
-	private String nomeCarro;
 
-	public void setHabilidade(Habilidade habilidade) {
-		this.habilidade = habilidade;
+	public Carro(String nomeCarro){
+		this.nomeCarro = nomeCarro;
+		this.habilidade = new NenhumaHabilidade();
+		this.descricao = "Carro sem personalização";
 	}
 
 	public Carro(Habilidade habilidade, String nomeCarro) {
-		this.habilidade = habilidade;
 		this.nomeCarro = nomeCarro;
-		descricao = "Personalização: ";
+		this.habilidade = habilidade;
 	}
 
+	@Override
 	public void ativarHabilidade() {
 		habilidade.usar();
 	}

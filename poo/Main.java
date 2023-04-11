@@ -2,17 +2,14 @@ package poo;
 
 import java.util.Scanner;
 
-import poo.habilidade.AProvaDeFogo;
-import poo.habilidade.Jump;
-import poo.habilidade.NenhumaHabilidade;
+import poo.habilidade.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         // Carro 1
-        Carro carro1 = new Carro(
-                new NenhumaHabilidade(), null);
+        Carro carro1 = new Carro("Carro 1");
         System.out.println("Customize o Carro 1:");
         System.out.print("Cor da Carroceria: ");
         String corCarroceria1 = scanner.nextLine();
@@ -27,7 +24,7 @@ public class Main {
 
         // Carro 2
         Carro carro2 = new Carro(
-                new AProvaDeFogo(), nomeAdesivo1);
+                new AProvaDeFogo(), "Carro 2");
         System.out.println("Customize o Carro 2:");
         System.out.print("Cor da Carroceria: ");
         String corCarroceria2 = scanner.nextLine();
@@ -41,7 +38,7 @@ public class Main {
         carro_personalizado2 = new AdesivoDecorator(carro_personalizado2, nomeAdesivo2);
 
         // Carro 3
-        Carro carro3 = new Carro(new Jump(), nomeAdesivo2);
+        Carro carro3 = new Carro(new Jump(), "Carro 3");
         System.out.println("Customize o Carro 3:");
         System.out.print("Cor da Carroceria: ");
         String corCarroceria3 = scanner.nextLine();
@@ -54,11 +51,16 @@ public class Main {
         carro_personalizado3 = new CorFarolDecorator(carro_personalizado3, corFarol3);
         carro_personalizado3 = new AdesivoDecorator(carro_personalizado3, nomeAdesivo3);
 
-        System.out.println("Carro 1 / " + carro_personalizado1.getDescricao());
-        System.out.println("Carro 2 / " + carro_personalizado2.getDescricao());
-        System.out.println("Carro 3 / " + carro_personalizado3.getDescricao());
+        System.out.println("\nTeste Decorators\n");
+
+        System.out.println("Carro 1 \n " + carro_personalizado1.getDescricao());
+        System.out.println("Carro 2 \n " + carro_personalizado2.getDescricao());
+        System.out.println("Carro 3 \n " + carro_personalizado3.getDescricao());
 
         scanner.close();
+
+        System.out.println("\nTeste Strategy\n");
+
 
         System.out.println("Carro 1");
         carro1.ativarHabilidade();
