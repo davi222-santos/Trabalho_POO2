@@ -1,4 +1,6 @@
-package poo;
+package poo.decorators;
+
+import poo.base.Componente;
 
 public class CorFarolDecorator extends CarroDecorado {
 

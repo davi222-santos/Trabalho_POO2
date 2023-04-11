@@ -1,7 +1,8 @@
-package poo;
+package poo.base;
 import poo.habilidade.*;
+import poo.observers.Observador;
 
-public abstract class Componente {
+public abstract class Componente implements Observador {
     protected String descricao;
     protected Habilidade habilidade;
     protected String nomeCarro;

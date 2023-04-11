@@ -2,7 +2,12 @@ package poo;
 
 import java.util.Scanner;
 
+import poo.base.Carro;
+import poo.base.Estado;
+import poo.base.Pista;
+import poo.decorators.*;
 import poo.habilidade.*;
+import poo.observers.Observador;
 
 public class Main {
     public static void main(String[] args) {
@@ -68,5 +73,18 @@ public class Main {
         carro2.ativarHabilidade();
         System.out.println("Carro 3");
         carro3.ativarHabilidade();
+
+        System.out.println("\nTeste Observer\n");
+
+        Pista pista = new Pista();
+        pista.adicionarObservador(carro1);
+        pista.adicionarObservador(carro2);
+        pista.adicionarObservador(carro3);
+        pista.setEstado(Estado.AreiaMovedica);
+
+       for(Observador obs: pista.observadores){
+            System.out.println(obs.pistaAtual.getEstado());
+       }
+        
     }
 }

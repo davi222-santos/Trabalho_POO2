@@ -1,10 +1,13 @@
-package poo;
+package poo.base;
 
 import poo.habilidade.Habilidade;
 import poo.habilidade.NenhumaHabilidade;
+import poo.observers.Observador;
+
 
 public class Carro extends Componente {
 	private Habilidade habilidade;
+
 
 	public Carro(String nomeCarro){
 		this.nomeCarro = nomeCarro;
@@ -21,5 +24,9 @@ public class Carro extends Componente {
 	public void ativarHabilidade() {
 		habilidade.usar();
 	}
+
+	public void atualizar(Estado newEstado) {
+        this.pistaAtual.setEstado(newEstado);
+	};
 
 }

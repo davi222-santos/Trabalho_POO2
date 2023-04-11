@@ -1,4 +1,7 @@
-package poo;
+package poo.decorators;
+
+import poo.base.Carro;
+import poo.base.Componente;
 
 public abstract class CarroDecorado extends Componente {
 
@@ -9,7 +12,7 @@ public abstract class CarroDecorado extends Componente {
         if (componente instanceof Carro)
             this.descricao = "Personalização do " + this.componente.getNome() + ": ";
         else
-            this.descricao = componente.descricao;
+            this.descricao = componente.getDescricao();
     }
 
     public Componente getComponente() {
