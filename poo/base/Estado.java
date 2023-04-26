@@ -1,6 +1,10 @@
 package poo.base;
 
-public enum Estado {
+interface IEstado {
+    public void mostrarEstado();
+}
+
+public enum Estado implements IEstado {
     Normal{
         @Override
         public void mostrarEstado(){
@@ -21,9 +25,5 @@ public enum Estado {
         public void mostrarEstado(){
             System.out.println("A pista se tornou Areia Movediça!\n");
         }
-    };
-
-    public void mostrarEstado(){
-        System.out.println("<Estado da pista>");
     };
 }
