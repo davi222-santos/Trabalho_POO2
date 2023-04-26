@@ -2,7 +2,6 @@ package poo.base;
 
 import java.util.List;
 import java.util.ArrayList;
-
 import poo.observers.*;
     
 public class Pista {
@@ -21,6 +20,7 @@ public class Pista {
 
     public void setEstado(Estado newEstado){
         this.estado = newEstado;
+        this.mostrarEstadoPista();
         for(Observador obs: this.observadores){
             obs.atualizar(newEstado);
         }

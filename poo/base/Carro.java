@@ -1,15 +1,15 @@
 package poo.base;
 
-import poo.habilidade.Habilidade;
-import poo.habilidade.NenhumaHabilidade;
-// import poo.observers.Observador;
-
+import java.util.Map;
+import poo.habilidade.*;
 
 public class Carro extends Componente {
-	private Habilidade habilidade;
 
+	Map<Estado, Object> referencias = Map.of(Estado.AreiaMovedica, SuperNitro.class,
+			Estado.Erupcao_Vulcanica, AProvaDeFogo.class,
+			Estado.Precipicio, Jump.class);
 
-	public Carro(String nomeCarro){
+	public Carro(String nomeCarro) {
 		this.nomeCarro = nomeCarro;
 		this.habilidade = new NenhumaHabilidade();
 		this.descricao = "Carro sem personalização";
@@ -22,10 +22,18 @@ public class Carro extends Componente {
 
 	@Override
 	public void ativarHabilidade() {
-		habilidade.usar();
+		this.habilidade.usar();
 	}
 
-	public void atualizar(Estado newEstado) {
-        this.pistaAtual.setEstado(newEstado);
+	public void atualizar(Estado estado) {
+		if(this.habilidade.getClass() == this.referencias.get(estado)){
+			System.out.println("Habilidade de " + this.nomeCarro + " foi ativada:");
+			this.ativarHabilidade();
+			// System.out.println("log1: " + this.referencias.get(estado));
+			// System.out.println("log2: " + this.habilidade.getClass());
+			// System.out.println("log3: " + estado);
+		} else {
+			// DESTRÓI
+		}
 	};
 }
