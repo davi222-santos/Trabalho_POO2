@@ -1,100 +1,36 @@
-package poo;
-
-import java.util.Scanner;
-
-import poo.base.Carro;
-import poo.base.Estado;
-import poo.base.Pista;
-import poo.decorators.*;
-import poo.habilidade.*;
+import java.util.ArrayList;
+import java.util.List;
+import base.Carro;
+import base.Componente;
+import decorators.*;
 
 public class Main {
      public static void main(String[] args) {
-          Scanner scanner = new Scanner(System.in);
 
           // Carro 1
           Carro carro1 = new Carro("Carro 1");
-          System.out.println("Customize o Carro 1:");
-          System.out.print("Cor da Carroceria: ");
-          String corCarroceria1 = scanner.nextLine();
-          System.out.print("Cor do Farol: ");
-          String corFarol1 = scanner.nextLine();
-          System.out.print("Nome do Adesivo: ");
-          String nomeAdesivo1 = scanner.nextLine();
-
-          CarroDecorado carro_personalizado1 = new CorCarroceriaDecorator(carro1, corCarroceria1);
-          carro_personalizado1 = new CorFarolDecorator(carro_personalizado1, corFarol1);
-          carro_personalizado1 = new AdesivoDecorator(carro_personalizado1, nomeAdesivo1);
+          CarroDecorado carro_personalizado1 = new CorCarroceriaDecorator(carro1, "Preto");
+          carro_personalizado1 = new CorFarolDecorator(carro_personalizado1, "Preto");
+          carro_personalizado1 = new AdesivoDecorator(carro_personalizado1, "Preto");
 
           // Carro 2
-          Carro carro2 = new Carro(
-                    new AProvaDeFogo(), "Carro 2");
-          System.out.println("Customize o Carro 2:");
-          System.out.print("Cor da Carroceria: ");
-          String corCarroceria2 = scanner.nextLine();
-          System.out.print("Cor do Farol: ");
-          String corFarol2 = scanner.nextLine();
-          System.out.print("Nome do Adesivo: ");
-          String nomeAdesivo2 = scanner.nextLine();
-
-          CarroDecorado carro_personalizado2 = new CorCarroceriaDecorator(carro2, corCarroceria2);
-          carro_personalizado2 = new CorFarolDecorator(carro_personalizado2, corFarol2);
-          carro_personalizado2 = new AdesivoDecorator(carro_personalizado2, nomeAdesivo2);
+          Carro carro2 = new Carro("Carro 2");
+          CarroDecorado carro_personalizado2 = new CorCarroceriaDecorator(carro2, "Azul");
+          carro_personalizado2 = new CorFarolDecorator(carro_personalizado2, "Azul");
+          carro_personalizado2 = new AdesivoDecorator(carro_personalizado2, "Azul");
 
           // Carro 3
-          Carro carro3 = new Carro(new Jump(), "Carro 3");
-          System.out.println("Customize o Carro 3:");
-          System.out.print("Cor da Carroceria: ");
-          String corCarroceria3 = scanner.nextLine();
-          System.out.print("Cor do Farol: ");
-          String corFarol3 = scanner.nextLine();
-          System.out.print("Nome do Adesivo: ");
-          String nomeAdesivo3 = scanner.nextLine();
+          Carro carro3 = new Carro("Carro 3");
+          CarroDecorado carro_personalizado3 = new CorCarroceriaDecorator(carro3, "vermelho");
+          carro_personalizado3 = new CorFarolDecorator(carro_personalizado3, "vermelho");
+          carro_personalizado3 = new AdesivoDecorator(carro_personalizado3, "vermelho");
 
-          CarroDecorado carro_personalizado3 = new CorCarroceriaDecorator(carro3, corCarroceria3);
-          carro_personalizado3 = new CorFarolDecorator(carro_personalizado3, corFarol3);
-          carro_personalizado3 = new AdesivoDecorator(carro_personalizado3, nomeAdesivo3);
+          List<Componente> participantes = new ArrayList<Componente>();
+          participantes.add(carro_personalizado1);
+          participantes.add(carro_personalizado2);
+          participantes.add(carro_personalizado3);
 
-          System.out.println("===========================================================");
-
-          System.out.println("\nTeste Decorators\n");
-
-          System.out.println("Carro 1 \n " + carro_personalizado1.getDescricao());
-          System.out.println("Carro 2 \n " + carro_personalizado2.getDescricao());
-          System.out.println("Carro 3 \n " + carro_personalizado3.getDescricao());
-
-          scanner.close();
-
-          System.out.println("===========================================================");
-
-          System.out.println("\nTeste Strategy\n");
-
-          System.out.println("Carro 1");
-          carro1.ativarHabilidade();
-          System.out.println("Carro 2");
-          carro2.ativarHabilidade();
-          System.out.println("Carro 3");
-          carro3.ativarHabilidade();
-
-          System.out.println("===========================================================");
-          System.out.println("\nTeste Observer\n");
-
-          Pista pista = new Pista();
-          pista.adicionarObservador(carro1);
-          pista.adicionarObservador(carro2);
-          pista.adicionarObservador(carro3);
-
-          carro1.setHabilidade(new AProvaDeFogo());
-          carro2.setHabilidade(new Jump());
-          carro3.setHabilidade(new SuperNitro());
-          // System.out.println("log main - hab: "+carro2.getHabilidade());
-
-          pista.setEstado(Estado.Precipicio);
-
-          System.out.println();
-          pista.voltarAoNormal();
-
-          System.out.println();
-          pista.setEstado(Estado.Erupcao_Vulcanica);
+          Corrida.iniciar(participantes);
      }
+
 }
