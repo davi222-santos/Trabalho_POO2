@@ -1,7 +1,9 @@
-package poo.decorators;
+package decorators;
 
-import poo.base.Carro;
-import poo.base.Componente;
+import base.Carro;
+import base.Componente;
+import base.Estado;
+
 
 public abstract class CarroDecorado extends Componente {
 
@@ -30,4 +32,12 @@ public abstract class CarroDecorado extends Componente {
     public String getNome(){
         return this.componente.getNome();
     }
+
+    @Override
+    public void atualizar(Estado estado) {
+       
+        super.atualizar(estado);
+    }
+
+ 
 }

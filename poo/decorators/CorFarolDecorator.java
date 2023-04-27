@@ -1,15 +1,17 @@
-package poo.decorators;
+package decorators;
 
-import poo.base.Componente;
+import base.Componente;
+
 
 public class CorFarolDecorator extends CarroDecorado {
-
-	public CarroDecorado carro;
 	public String corFarol;
 
 	public CorFarolDecorator(Componente componente, String corFarol) {
 		super(componente);
+		this.corFarol = corFarol;
 		this.descricao = this.descricao + " + com farol de cor " + corFarol;
 	}
+
+
 
 }
