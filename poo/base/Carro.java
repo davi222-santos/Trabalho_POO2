@@ -1,13 +1,23 @@
-package poo.base;
+package base;
 
+import java.util.HashMap;
 import java.util.Map;
-import poo.habilidade.*;
+
+import habilidade.AProvaDeFogo;
+import habilidade.Habilidade;
+import habilidade.Jump;
+import habilidade.NenhumaHabilidade;
+import habilidade.SuperNitro;
 
 public class Carro extends Componente {
 
-	Map<Estado, Object> referencias = Map.of(Estado.AreiaMovedica, SuperNitro.class,
-			Estado.Erupcao_Vulcanica, AProvaDeFogo.class,
-			Estado.Precipicio, Jump.class);
+	// Map<Estado, Class<?>> referencias = new HashMap<Estado, Class<?>>() {
+	// 	{
+	// 		put(Estado.AreiaMovedica, SuperNitro.class);
+	// 		put(Estado.Erupcao_Vulcanica, AProvaDeFogo.class);
+	// 		put(Estado.Precipicio, Jump.class);
+	// 	}
+	// };
 
 	public Carro(String nomeCarro) {
 		this.nomeCarro = nomeCarro;
@@ -25,15 +35,15 @@ public class Carro extends Componente {
 		this.habilidade.usar();
 	}
 
-	public void atualizar(Estado estado) {
-		if(this.habilidade.getClass() == this.referencias.get(estado)){
-			System.out.println("Habilidade de " + this.nomeCarro + " foi ativada:");
-			this.ativarHabilidade();
-			// System.out.println("log1: " + this.referencias.get(estado));
-			// System.out.println("log2: " + this.habilidade.getClass());
-			// System.out.println("log3: " + estado);
-		} else {
-			// DESTRÓI
-		}
-	};
+	// public void atualizar(Estado estado) {
+
+	// 	if (this.habilidade.getClass() == this.referencias.get(estado)) {
+	// 		System.out.println("Habilidade de " + this.nomeCarro + " foi ativada:");
+	// 		this.ativarHabilidade();
+
+	// 	} else {
+	// 		System.out.println("O " + this.nomeCarro + " foi destruido, porque estava apenas com a habilidade de " + this.habilidade);
+	// 		setDestruido(true);
+	// 	}
+	// };
 }
