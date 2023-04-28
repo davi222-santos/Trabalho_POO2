@@ -1,7 +1,6 @@
-package poo.habilidade;
+package habilidade;
 
 @FunctionalInterface
 public interface Habilidade {
 	void usar();
-	
 }

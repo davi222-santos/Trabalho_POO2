@@ -16,11 +16,11 @@ public class Corrida {
         apresentarCompetidores(carros);
         System.out.println("A corrida vai começar");
         while (!_carros.isEmpty()) {
-            //adicionando habilidades nos carros
-            for (Componente carro : carros){
+            // adicionando habilidades nos carros
+            for (Componente carro : carros) {
                 carro.setHabilidade(getHabilidadeAleatorio());
             }
-            //atualizando estado da habilidade dos carros na pista
+            // atualizando estado da habilidade dos carros na pista
             pista.observadores.clear();
             pista.observadores.addAll(carros);
             pista.setEstado(getEstadoAleatorio());
@@ -49,11 +49,11 @@ public class Corrida {
 
     private static Habilidade getHabilidadeAleatorio() {
         List<Habilidade> habilidades = new ArrayList<Habilidade>();
-        
+
         habilidades.add(new AProvaDeFogo());
         habilidades.add(new Jump());
         habilidades.add(new SuperNitro());
-      
+
         Random gerador = new Random();
         final int habilidadeAleatorio = gerador.nextInt(habilidades.size());
         return habilidades.get(habilidadeAleatorio);

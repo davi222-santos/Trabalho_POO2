@@ -9,26 +9,26 @@ public class Main {
 
           // Carro 1
           Carro carro1 = new Carro("Carro 1");
-          CarroDecorado carro_personalizado1 = new CorCarroceriaDecorator(carro1, "Preto");
-          carro_personalizado1 = new CorFarolDecorator(carro_personalizado1, "Preto");
-          carro_personalizado1 = new AdesivoDecorator(carro_personalizado1, "Preto");
+          CorCarroceriaDecorator carro_com_carroceria_1 = new CorCarroceriaDecorator(carro1, "preto");
+          CorFarolDecorator carro_com_farol_1 = new CorFarolDecorator(carro_com_carroceria_1, "preto");
+          AdesivoDecorator carro_com_adesivo_1 = new AdesivoDecorator(carro_com_farol_1, "preto");
 
           // Carro 2
           Carro carro2 = new Carro("Carro 2");
-          CarroDecorado carro_personalizado2 = new CorCarroceriaDecorator(carro2, "Azul");
-          carro_personalizado2 = new CorFarolDecorator(carro_personalizado2, "Azul");
-          carro_personalizado2 = new AdesivoDecorator(carro_personalizado2, "Azul");
+          CorCarroceriaDecorator carro_com_carroceria_2 = new CorCarroceriaDecorator(carro2, "azul");
+          CorFarolDecorator carro_com_farol_2 = new CorFarolDecorator(carro_com_carroceria_2, "azul");
+          AdesivoDecorator carro_com_adesivo_2 = new AdesivoDecorator(carro_com_farol_2, "azul");
 
           // Carro 3
           Carro carro3 = new Carro("Carro 3");
-          CarroDecorado carro_personalizado3 = new CorCarroceriaDecorator(carro3, "vermelho");
-          carro_personalizado3 = new CorFarolDecorator(carro_personalizado3, "vermelho");
-          carro_personalizado3 = new AdesivoDecorator(carro_personalizado3, "vermelho");
+          CorCarroceriaDecorator carro_com_carroceria_3 = new CorCarroceriaDecorator(carro3, "vermelho");
+          CorFarolDecorator carro_com_farol_3 = new CorFarolDecorator(carro_com_carroceria_3, "vermelho");
+          AdesivoDecorator carro_com_adesivo_3 = new AdesivoDecorator(carro_com_farol_3, "vermelho");
 
           List<Componente> participantes = new ArrayList<Componente>();
-          participantes.add(carro_personalizado1);
-          participantes.add(carro_personalizado2);
-          participantes.add(carro_personalizado3);
+          participantes.add(carro_com_adesivo_1);
+          participantes.add(carro_com_adesivo_2);
+          participantes.add(carro_com_adesivo_3);
 
           Corrida.iniciar(participantes);
      }

@@ -1,4 +1,4 @@
-package poo.habilidade;
+package habilidade;
 
 public class NenhumaHabilidade implements Habilidade{
 

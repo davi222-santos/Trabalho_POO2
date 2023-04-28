@@ -1,45 +1,44 @@
-package poo.base;
+package base;
 
 import java.util.List;
 import java.util.ArrayList;
-import poo.observers.*;
-    
+import observers.*;
+
 public class Pista {
 
     public Estado estado;
 
     public List<Observador> observadores = new ArrayList<Observador>();
-    
-    public Pista(){
-        this.estado = Estado.Normal;    
+
+    public Pista() {
+        this.estado = Estado.Normal;
     }
 
-    public Estado getEstado(){
+    public Estado getEstado() {
         return this.estado;
     }
 
-    public void setEstado(Estado newEstado){
+    public void setEstado(Estado newEstado) {
         this.estado = newEstado;
         this.mostrarEstadoPista();
-        for(Observador obs: this.observadores){
+        for (Observador obs : this.observadores) {
             obs.atualizar(newEstado);
         }
     }
 
-    public void mostrarEstadoPista(){
+    public void mostrarEstadoPista() {
         this.estado.mostrarEstado();
     }
 
-    public void voltarAoNormal(){
+    public void voltarAoNormal() {
         this.setEstado(Estado.Normal);
     };
 
-    public void adicionarObservador(Observador obs){
+    public void adicionarObservador(Observador obs) {
         this.observadores.add(obs);
     }
 
-    public void removerObservador(Observador obs){
+    public void removerObservador(Observador obs) {
         this.observadores.remove(obs);
     }
-
 }

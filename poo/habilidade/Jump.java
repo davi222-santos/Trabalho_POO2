@@ -1,4 +1,4 @@
-package poo.habilidade;
+package habilidade;
 
 public class Jump implements Habilidade{
 
@@ -7,4 +7,8 @@ public class Jump implements Habilidade{
        System.out.println("Pulando");
     }
     
+    @Override
+    public String toString() {
+        return "Jump!";
+    }
 }
