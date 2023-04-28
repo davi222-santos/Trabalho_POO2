@@ -3,34 +3,48 @@ import java.util.List;
 import base.Carro;
 import base.Componente;
 import decorators.*;
+import java.util.Random;
 
 public class Main {
      public static void main(String[] args) {
 
-          // Carro 1
-          Carro carro1 = new Carro("Carro 1");
-          CarroDecorado carro_personalizado1 = new CorCarroceriaDecorator(carro1, "Preto");
-          carro_personalizado1 = new CorFarolDecorator(carro_personalizado1, "Preto");
-          carro_personalizado1 = new AdesivoDecorator(carro_personalizado1, "Preto");
-
-          // Carro 2
-          Carro carro2 = new Carro("Carro 2");
-          CarroDecorado carro_personalizado2 = new CorCarroceriaDecorator(carro2, "Azul");
-          carro_personalizado2 = new CorFarolDecorator(carro_personalizado2, "Azul");
-          carro_personalizado2 = new AdesivoDecorator(carro_personalizado2, "Azul");
-
-          // Carro 3
-          Carro carro3 = new Carro("Carro 3");
-          CarroDecorado carro_personalizado3 = new CorCarroceriaDecorator(carro3, "vermelho");
-          carro_personalizado3 = new CorFarolDecorator(carro_personalizado3, "vermelho");
-          carro_personalizado3 = new AdesivoDecorator(carro_personalizado3, "vermelho");
-
-          List<Componente> participantes = new ArrayList<Componente>();
-          participantes.add(carro_personalizado1);
-          participantes.add(carro_personalizado2);
-          participantes.add(carro_personalizado3);
-
-          Corrida.iniciar(participantes);
+          Corrida.iniciar(geradorDeCarros(3));
+          
      }
 
+     public static List<Componente> geradorDeCarros(int quantidade) {
+          List<Componente> _carros = new ArrayList<Componente>();
+          if (quantidade > 0) {
+
+               for (int i = 0; i < quantidade; i++) {
+                    CarroDecorado carro_personalizado = new CorCarroceriaDecorator(new Carro("Carro " + (i + 1)),
+                              getColor());
+                    carro_personalizado = new CorFarolDecorator(carro_personalizado, getColor());
+                    carro_personalizado = new AdesivoDecorator(carro_personalizado, getColor());
+                    _carros.add(carro_personalizado);
+               }
+               return _carros;
+          } else {
+               System.out.println("Erro");
+               return _carros;
+          }
+     }
+
+     public static String getColor() {
+          Random gerador = new Random();
+          List<String> cores = new ArrayList<String>();
+
+          cores.add("Azul");
+          cores.add("Amarelo");
+          cores.add("Âmbar");
+          cores.add("Ameixa");
+          cores.add("Vermelho");
+          cores.add("Preto");
+          cores.add("Branco");
+          cores.add("Rosa");
+          cores.add("Verde");
+          cores.add("Roxo");
+          cores.add("Laranja");
+          return cores.get(gerador.nextInt(cores.size()));
+     }
 }
