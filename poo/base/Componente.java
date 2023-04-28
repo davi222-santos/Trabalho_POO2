@@ -14,7 +14,7 @@ public abstract class Componente implements Observador {
     public abstract void atualizar(Estado estado);
 
     public Boolean getDestruido() {
-        return destruido;
+        return this.destruido;
     }
 
     public void setDestruido(Boolean destruido) {
