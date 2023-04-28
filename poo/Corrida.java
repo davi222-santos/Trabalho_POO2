@@ -15,19 +15,28 @@ public class Corrida {
 
         apresentarCompetidores(carros);
         System.out.println("A corrida vai começar");
-        while (!_carros.isEmpty()) {
-            // adicionando habilidades nos carros
-            for (Componente carro : carros) {
+        while (_carros.size()> 1) {
+         
+        
+             // adicionando habilidades nos carros
+             for (Componente carro : _carros) {
                 carro.setHabilidade(getHabilidadeAleatorio());
             }
             // atualizando estado da habilidade dos carros na pista
             pista.observadores.clear();
-            pista.observadores.addAll(carros);
+            pista.observadores.addAll(_carros);
             pista.setEstado(getEstadoAleatorio());
 
-            _carros = limparPista(_carros);
+            _carros = limparPista(_carros, pista.estado);
 
-        }
+        
+           }
+           if(_carros.size() == 1){
+            System.out.println("Temos um sobrevivente, muito bem " + _carros.get(0).getNome());
+           }
+           else if (_carros.size() == 0){
+            System.out.println("Infelizmente pessoal estão todos mortos, mas semana que vem tem mais.");
+           }
 
     }
 
@@ -59,12 +68,13 @@ public class Corrida {
         return habilidades.get(habilidadeAleatorio);
     }
 
-    private static List<Componente> limparPista(List<Componente> carros) {
+    private static List<Componente> limparPista(List<Componente> carros, Estado e) {
         List<Componente> _carros = new ArrayList<Componente>();
         for (Componente carro : carros) {
             if (!carro.getDestruido()) {
                 _carros.add(carro);
             }
+         
         }
         return _carros;
     }
