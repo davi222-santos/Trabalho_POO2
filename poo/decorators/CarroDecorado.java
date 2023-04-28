@@ -12,7 +12,7 @@ public abstract class CarroDecorado extends Componente {
     public CarroDecorado(Componente componente) {
         this.componente = componente;
         if (componente instanceof Carro) {
-            String descricao = "Personalização do " + this.componente.getNome() + ": ";
+            String descricao = this.componente.getNome();
             this.componente.setDescricao(descricao);
         } else {
             this.componente.setDescricao(this.componente.getDescricao());

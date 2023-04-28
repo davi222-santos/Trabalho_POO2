@@ -32,7 +32,7 @@ public abstract class Componente implements Observador {
     }
 
     public String getDescricao() {
-        return this.getNome() + " " + this.descricao;
+        return  this.descricao;
     }
 
     public abstract void setDescricao(String desc);

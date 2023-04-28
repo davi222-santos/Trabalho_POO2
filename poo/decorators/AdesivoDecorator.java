@@ -9,7 +9,7 @@ public class AdesivoDecorator extends CarroDecorado {
 	public AdesivoDecorator(Componente componente, String nomeAdesivo) {
 		super(componente);
 		this.nomeAdesivo = nomeAdesivo;
-		String desc = this.getDescricao() + " + adesivo de cor " + nomeAdesivo;
+		String desc = this.getDescricao() + " - adesivo de cor " + nomeAdesivo;
 		this.getComponente().setDescricao(desc); 
 
 	}

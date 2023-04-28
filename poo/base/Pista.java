@@ -3,7 +3,6 @@ package base;
 import java.util.List;
 import java.util.ArrayList;
 import observers.*;
-
 public class Pista {
 
     public Estado estado;
