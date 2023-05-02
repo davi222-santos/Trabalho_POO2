@@ -14,6 +14,7 @@ public class Corrida {
         Pista pista = new Pista();
 
         apresentarCompetidores(carros);
+        
         System.out.println("A corrida vai começar");
         while (_carros.size()> 1) {
          
@@ -27,7 +28,7 @@ public class Corrida {
             pista.observadores.addAll(_carros);
             pista.setEstado(getEstadoAleatorio());
 
-            _carros = limparPista(_carros, pista.estado);
+            _carros = limparPista(_carros);
 
         
            }
@@ -68,7 +69,7 @@ public class Corrida {
         return habilidades.get(habilidadeAleatorio);
     }
 
-    private static List<Componente> limparPista(List<Componente> carros, Estado e) {
+    private static List<Componente> limparPista(List<Componente> carros) {
         List<Componente> _carros = new ArrayList<Componente>();
         for (Componente carro : carros) {
             if (!carro.getDestruido()) {
